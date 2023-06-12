@@ -1,0 +1,8 @@
+venv
+/__pycahce__
+/decision_tree_classification/__pycahce__
+/helpers/base_logger/__pycahce__
+/helpers/cors/__pycahce__
+/model/__pycahce__
+/resources/__pycahce__
+hello_flask.log
