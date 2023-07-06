@@ -1,0 +1,36 @@
+educational_special_needs 1.4709031546313716
+international 1.4708047488659899                          ✅
+daytime_evening_attendance 1.466508868545754              ✅
+inflation_rate 1.463234127010496                          ✅
+nacionality 1.4626279905221593                            ✅
+gdp 1.4623523231966973                                    ✅
+unemployment_rate 1.4623523231966973                      ✅
+displaced 1.4615921437890225                              ✅
+marital_status 1.4612108730120459                         ✅
+curricular_units_2st_sem_credit 1.4609834727991031        ✅
+curricular_units_1st_sem_without_evaluations 1.4606224612158714 ✅
+curricular_units_2st_sem_without_evaluations 1.4602818910066735 ✅
+curricular_units_1st_sem_credit 1.4601043539633545        ✅
+application_order 1.4596145827614524                      ✅
+previous_qualification 1.4354855664630126                 ✅
+mother_qualification 1.4351654888562921                   ✅
+father_qualification 1.4334777062765314                   ✅
+gender 1.432905163673705                                  ✅
+debtor 1.4292651721197427                                 ✅
+father_occupation 1.4265536249319895                      ✅
+mother_occupation 1.4219332101016997                      ✅
+scholarship_holder 1.4001043684097914                     ✅
+curricular_units_1st_sem_enrolled 1.3985492466321165      ✅
+curricular_units_2st_sem_enrolled 1.3983592956104893      ✅
+application_mode 1.395683902636363                        ✅
+age_at_enrollment 1.381569018094906                       ✅
+previous_qualification_grade 1.3805051561046664           ✅
+course 1.3751346029194418                                 ✅
+curricular_units_1st_sem_evaluations 1.3408128571756146   ✅
+tuition_fees_up_to_date 1.3385554872229846                ✅
+curricular_units_2st_sem_evaluations 1.3319571391687905   ✅
+admission_grade 1.2047704852379972                        ✅
+curricular_units_1st_sem_approved 1.1147713210623518      ✅
+curricular_units_1st_sem_grade 1.0172219725369422         ✅
+curricular_units_2st_sem_approved 1.0151168701488795      ✅
+curricular_units_2st_sem_grade 0.9561301562253876

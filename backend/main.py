@@ -1,20 +1,29 @@
 from data import *
 from classify import *
 from build_tree_i3 import *
+from helpers.base_logger import *
 
-# tree = build_tree_id3(inputs, ['level', 'lang', 'tweets', 'phd'], 'did_well')
+
 # tree = build_tree_id3(inputs, split_attributes, 'target')
 
-# Deve prever True
-# print(classify(tree, Candidate("Junior", "Java", True, False)))
-# Deve prever False
-# assert not classify(tree, Candidate("Junior", "Java", True, True))
-# Aplicando a valores inesperados
-# assert classify(tree, Candidate("Intern", "java", True, True))
+# print(classify_decision(tree))
 
-tree = build_tree_id3(inputs, split_attributes, 'target')
 
-print(classify(
-  tree,
-  Candidate(1,17,5,171,1,1,122.0,1,19,12,5,9,127.3,1,0,0,1,1,0,20,0,0,0,0,0,0.0,0,0,0,0,0,0.0,0,10.8,1.4,1.74))
-)
+def classify_decision_api(answer=None, tree: DecisionTree = None) -> Any:
+    if (tree is None):
+        tree = build_tree_id3(inputs, split_attributes, 'target')
+
+    if isinstance(tree, Leaf):
+        return tree.value
+
+    attribute = tree.attribute
+
+    if answer not in tree.subtrees:
+        return tree.default_value
+
+    if (answer != None):
+        subtree: DecisionTree = tree.subtrees[answer]
+
+        return (subtree.attribute, subtree)
+    else:
+        return attribute
