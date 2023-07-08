@@ -3,7 +3,7 @@ import pickle
 import os.path
 
 from data import *
-from leafsplit import *
+from classify import *
 from build_tree_i3 import *
 from helpers.base_logger import *
 

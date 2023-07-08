@@ -4,8 +4,7 @@ from leafsplit import *
 
 def classify_decision(tree: DecisionTree) -> Any:
     if isinstance(tree, Leaf):
-        print("entrou aqui 1")
-        return tree.value
+        return tree.value, tree.certainty*100
 
     print(tree)
     answer = 0
@@ -16,10 +15,8 @@ def classify_decision(tree: DecisionTree) -> Any:
         answer = input(question)
 
     if answer not in tree.subtrees:
-        return tree.default_value
+        return tree.default_value, 0.0
 
     subtree = tree.subtrees[answer]
-
-    print(subtree)
 
     return classify_decision(subtree)
