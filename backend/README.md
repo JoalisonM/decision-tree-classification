@@ -1,4 +1,4 @@
-#Como rodar o back
+# Como rodar o back
 
 ### Baixar dependências
 #### Primeiro criar a venv, exemplo linux:
