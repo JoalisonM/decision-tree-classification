@@ -4,7 +4,9 @@ from leafsplit import *
 from partition_entropy_by import *
 
 
-def build_tree_id3(inputs: List[Any], split_attributes: List[str], target_attribute: str) -> DecisionTree:
+def build_tree_id3(inputs: List[Any], split_attributes: List[str], target_attribute: str, num_instances: int = None) -> DecisionTree:
+    if(num_instances is None):
+        num_instances = len(inputs)
     # Conte os rótulos especificados
     # Itera por todos as tuplas contando quantos valores diferentes o target_attribute assume
     label_counts = Counter(getattr(input, target_attribute)
@@ -47,10 +49,12 @@ def build_tree_id3(inputs: List[Any], split_attributes: List[str], target_attrib
 
     # Construa recursivamente as subárvores
     # construa as subárvores usando o valor de cada uma das partições
-    subtrees = {attribute_value: build_tree_id3(subset, new_attributes, target_attribute)
+    subtrees = {attribute_value: build_tree_id3(subset, new_attributes, target_attribute, len(subset))
                 for attribute_value, subset in partitions.items()}
+
+    leaf_certainty = max(label_counts.values()) / num_instances
 
     # retorna o vértice com o atributo de divisão, cada uma das subárvores
     # e o valor padrão para o caso da busca por atributo(valor1) não presente
     # nos labels de divisão
-    return Split(best_attribute, subtrees, default_value=most_common_label)
+    return Split(best_attribute, subtrees, num_instances, confidence=leaf_certainty, default_value=most_common_label)

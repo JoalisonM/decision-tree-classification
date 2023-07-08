@@ -7,6 +7,8 @@ class Leaf(NamedTuple):
 class Split(NamedTuple):
   attribute: str
   subtrees: dict
+  num_instances: int
+  confidence: float
   default_value: Any = None
 
 DecisionTree = Union[Leaf, Split]

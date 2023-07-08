@@ -37,7 +37,7 @@ def classify_decision_api(answer=None) -> Any:
     if answer not in tree.subtrees:
         if(os.path.exists('new_tree.pickle')):
             os.remove('new_tree.pickle')
-        return tree.default_value, 0.0
+        return tree.default_value, tree.confidence*100
 
     if (answer != None):
         subtree: DecisionTree = tree.subtrees[answer]

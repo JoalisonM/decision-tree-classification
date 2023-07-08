@@ -15,7 +15,7 @@ def classify_decision(tree: DecisionTree) -> Any:
         answer = input(question)
 
     if answer not in tree.subtrees:
-        return tree.default_value, 0.0
+        return tree.default_value, tree.confidence*100
 
     subtree = tree.subtrees[answer]
 

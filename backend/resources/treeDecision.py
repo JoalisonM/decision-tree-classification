@@ -29,6 +29,6 @@ class TreeDecisionResource(Resource):
 
             return (marshal(tree, tree_decision_post_fields), 200)
         else:
-            tree = TreeDecisionPost(response[0], response[1])
+            tree = TreeDecisionPost(response[0], round(response[1], 2))
 
             return (marshal(tree, tree_decision_post_fields), 200)
