@@ -9,7 +9,7 @@ interface TreeDecisionContextType {
   setTarget: (value: TargetProps) => void;
   setTree: (value: TreeDecisionProps) => void;
   getFirstQuestion: () => Promise<TreeDecisionProps>;
-  createTreeDecision: (data: CreateTreeDecisionInput) => Promise<CreateTreeDecisionInput>;
+  createTreeDecision: (data: CreateTreeDecisionInput) => Promise<TargetProps>;
 }
 
 interface TreeDecisionsContextProviderProps {
@@ -18,6 +18,7 @@ interface TreeDecisionsContextProviderProps {
 
 interface TargetProps {
   attribute: string;
+  certainty: number;
 }
 
 export const TreeDecisionsContext = createContext({} as TreeDecisionContextType);

@@ -1,6 +1,6 @@
 from typing import List
 
-from classify import *
+from leafsplit import *
 from partition_entropy_by import *
 
 
@@ -17,12 +17,18 @@ def build_tree_id3(inputs: List[Any], split_attributes: List[str], target_attrib
     # Se só tem uma resposta (uma entrada em label_counts)
     # então a entropia é zero e retorna uma folha P/o rótulo
     if len(label_counts) == 1:
-        return Leaf(most_common_label)
+        certainty = 1.0
+
+        return Leaf(most_common_label, certainty)
 
     # Se não restar nenhum atributo de divisão, retorne o rótulo majoritário
     # Se não tem como ramificar retorne o label(rótulo) mais comum
     if not split_attributes:
-        return Leaf(most_common_label)
+        total_instances = sum(label_counts.values())
+        majority_label_count = max(label_counts.values())
+        certainty = majority_label_count / total_instances
+
+        return Leaf(most_common_label, certainty)
 
     # Caso contrário, divida pelo melhor resultado
     def split_entropy(attribute: str) -> float:

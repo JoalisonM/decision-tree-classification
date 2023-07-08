@@ -3,7 +3,7 @@ import pickle
 import os.path
 
 from data import *
-from classify import *
+from leafsplit import *
 from build_tree_i3 import *
 from helpers.base_logger import *
 
@@ -37,7 +37,7 @@ def classify_decision_api(answer=None) -> Any:
     if answer not in tree.subtrees:
         if(os.path.exists('new_tree.pickle')):
             os.remove('new_tree.pickle')
-        return tree.default_value
+        return tree.default_value, 0.0
 
     if (answer != None):
         subtree: DecisionTree = tree.subtrees[answer]
@@ -45,7 +45,7 @@ def classify_decision_api(answer=None) -> Any:
         if isinstance(subtree, Leaf):
             if(os.path.exists('new_tree.pickle')):
                 os.remove('new_tree.pickle')
-            return subtree.value
+            return (subtree.value, subtree.certainty*100)
         else:
             set_subtree(subtree)
 

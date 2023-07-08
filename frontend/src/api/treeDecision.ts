@@ -4,6 +4,7 @@ const uriTreeDecision = "tree-decision"
 
 export interface TreeDecisionProps {
   attribute: string;
+  certainty: number;
 }
 
 export interface CreateTreeDecisionInput {
@@ -16,6 +17,6 @@ export const TreeDecision = {
   },
 
   create(treeDecision: CreateTreeDecisionInput) {
-    return api.post<CreateTreeDecisionInput>(`${uriTreeDecision}`, treeDecision);
+    return api.post<TreeDecisionProps>(`${uriTreeDecision}`, treeDecision);
   }
 };

@@ -19,6 +19,7 @@ import { FormContainer, Button } from "./styles";
 
 interface TargetProps {
   attribute: string;
+  certainty: number;
 }
 
 export const Form = () => {
@@ -413,7 +414,7 @@ export const Form = () => {
       {(target.attribute === "Graduate"
       || target.attribute === "Enrolled"
       || target.attribute === "Dropout") &&
-        <h2>Resultado: <span>{target.attribute}</span></h2>
+        <h2>Resultado: <span>{target.attribute}</span>, com {target.certainty}% de certeza</h2>
       }
 
       <Button type="submit">Enviar</Button>

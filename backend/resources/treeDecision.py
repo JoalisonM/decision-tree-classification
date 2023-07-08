@@ -2,7 +2,6 @@ from flask_restful import Resource, reqparse, marshal
 
 from data import *
 from main import *
-from leafsplit import *
 from build_tree_i3 import *
 
 from model.treeDecision import *
@@ -24,6 +23,12 @@ class TreeDecisionResource(Resource):
         answer = args["answer"]
 
         response = classify_decision_api(answer)
-        tree = TreeDecisionPost(response)
 
-        return (marshal(tree, tree_decision_post_fields), 200)
+        if (type(response) == str):
+            tree = TreeDecisionPost(response)
+
+            return (marshal(tree, tree_decision_post_fields), 200)
+        else:
+            tree = TreeDecisionPost(response[0], response[1])
+
+            return (marshal(tree, tree_decision_post_fields), 200)
