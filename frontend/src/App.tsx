@@ -1,20 +1,16 @@
 import { useState } from "react";
 
 import { Form } from "./components/Form"
+import { globalStyles } from "./styles/global";
+import { TreeDecisionsContextProvider } from "./hooks/useTreeDecision";
 
 function App() {
-  const [target, setTarget] = useState("");
-
-  console.log("target: ", target);
+  globalStyles();
 
   return (
-    <>
-      <Form setTarget={setTarget} />
-
-      <div>
-        {/* {(target && target !== null) && target} */}
-      </div>
-    </>
+    <TreeDecisionsContextProvider>
+      <Form />
+    </TreeDecisionsContextProvider>
   )
 }
 

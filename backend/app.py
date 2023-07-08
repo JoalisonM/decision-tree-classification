@@ -15,7 +15,6 @@ api = Api(api_bp, prefix="/api")
 cors.init_app(app)
 
 api.add_resource(TreeDecisionResource, '/tree-decision')
-# api.add_resource(PeopleResource, '/pessoas/<int:person_id>')
 
 # Blueprints para Restful
 app.register_blueprint(api_bp)
